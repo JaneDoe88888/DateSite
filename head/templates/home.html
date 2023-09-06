@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block slider %}
+<div class="container-slide">
+    <div id="carousel-demo" class="carousel">
+        {% for slide in slides %}
+        <div class="item-1">
+            <img src="{{ slide.image.url }}" alt="" class="slide-img">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="title">
+    Hello world
+</h1>
+{% endblock %}
