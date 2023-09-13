@@ -1,11 +1,12 @@
 {% extends 'base_layout.html' %}
+{% load static from static %}
 
-{% block auth %}
+{% block content %}
 <div class="columns is-centered mt-3">
     <div class="column is-4">
-        <div class="box has-background-info-light">
+        <div class="box" style="background-color: lavenderblush">
             <form method="post">
-                <div class="title is-2 has-text-centered">
+                <div class="title is-2 has-text-centered" style="font-family: 'Comic Sans MS'">
                     Регистрация
                 </div>
                 {% csrf_token %}
@@ -28,17 +29,11 @@
                 </ul>
                 {% endif %}
                 <div class="has-text-centered">
-                    <button class="button is-success">
+                    <button class="button is-danger is-fullwidth">
                         Отправить
                     </button>
                 </div>
-                <div class="content has-text-centered  mt-4">
-                    <span>Уже есть аккаунт</span>
-                    <br><br>
-                    <a href="{% url 'users:sign_in' %}">
-                        Авторизоваться
-                    </a>
-                </div>
+                
             </form>
         </div>
     </div>

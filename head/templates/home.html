@@ -1,7 +1,7 @@
 {% extends 'base_layout.html' %}
 {% load static %}
 
-{% block slider %}
+<!-- {% block slider %}
 <div class="container-slide">
     <div id="carousel-demo" class="carousel">
         {% for slide in slides %}
@@ -11,20 +11,72 @@
         {% endfor %}
     </div>
 </div>
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
-<section class="section">
-    <div class="container">
-        <div class="title is-centered" style="text-align: center">
-            hello world
+    <section class="section">
+        <div class="container">
+            <div class="title is-centered" style="text-align: center">
+                hello world
+            </div>
+            <div class="subtitle" style="text-align: center">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, voluptatum!
+            </div>
+{#            <button class="button">#}
+{#                <a href="{% url 'users:sign_up' %}">Создать аккаунт</a>#}
+{#            </button>#}
+            <div class="has-text-centered" style="margin-top: 200px">
+                <a href="{% url 'head:home' %}?action=log_in" class="button is-danger is-large">Войти в аккаунт</a>
+            </div>
+            <div class="modal {% if confirm_login %} is-active {% endif %}">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+
+                    <div class="columns is-centered mt-3">
+                        <div class="column is-6">
+                            <div class="box has-background" style="background-color: lavenderblush">
+                                <form method="post">
+                                    <div class="title is-2 has-text-centered" style="font-family: 'Comic Sans MS'">
+                                        Вход
+                                    </div>
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                        <div class="field">
+                                            <label for="{{ field.id_for_label }}" class="label">
+                                                {{ field.label }}
+                                            </label>
+                                            <div class="control">
+                                                {{ field }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                    {% if form.errors %}
+                                        <ul>
+                                            {% for error in form.errors.values %}
+                                                <li class="has-text-danger">{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    <div class="has-text-centered">
+                                        <button class="button is-danger is-fullwidth">
+                                            Войти
+                                        </button>
+                                    </div>
+                                    <br>
+                                <div class="has-text-centered">
+                                    <p>У вас нет аккаунта?</p>
+                                    <div class="button">
+                                        <a href="{% url 'users:sign_up' %}">Создать аккаунт</a>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div class="subtitle" style="text-align: center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, voluptatum!
-        </div>
-        <button class="button">
-            <a href="">Создать аккаунт</a>
-        </button>
-    </div>
-</section>
+    </section>
 {% endblock %}

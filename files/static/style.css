@@ -1,3 +1,15 @@
+body {
+    background: url('photo_2023-09-11 22.01.43.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;    
+}
+nav {
+    opacity: 1 !important;
+    display: flex;
+}
+
 .container-slide {
     max-width: 100% !important; 
     height: 50vh;
@@ -15,5 +27,5 @@ button {
     display: flex;
     margin: 0 auto;
     align-items: center;
-
 }
+
