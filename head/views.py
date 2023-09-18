@@ -12,11 +12,11 @@ def home(request):
     if form.is_valid():
         user = form.get_user()
         login(request, user)
-        return redirect('head:str')
+        return redirect('head:profile')
     return render(request, 'home.html', {'form': form, 'confirm_login': confirm_login})
 
-def strr(request):
-    return render(request, 'str.html', {})
+def profile(request):
+    return render(request, 'profile.html', {})
 
 def sign_out(request):
     logout(request)
