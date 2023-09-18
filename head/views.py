@@ -18,6 +18,8 @@ def home(request):
 def profile(request):
     return render(request, 'profile.html', {})
 
+
+
 def sign_out(request):
     logout(request)
     return redirect('head:home')
